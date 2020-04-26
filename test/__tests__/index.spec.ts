@@ -24,38 +24,36 @@ describe('Test suite for get()', () => {
     b: {foo: [{c: 1}], bar: [{d: 2}]},
   };
 
+  test.each([
+    ['Nonexistent top-level path returns undefined', simpleObj, 'bad'],
+    ['Nonexistent nested path returns undefined', nestedObj, 'bad.path.here'],
+    [
+      'Nonexistent nested path that has a partial existent path returns undefined',
+      nestedObj,
+      'a.b.c.bad',
+    ],
+    [
+      'Nonexistent top-level array index returns undefined',
+      simpleArrayObj,
+      `a[${simpleArrayObj.a.length}]`,
+    ],
+    [
+      'Using array accessor on primitive prop value returns undefined',
+      simpleObj,
+      'a[0]',
+    ],
+    [
+      'Using array accessor on object prop value returns undefined',
+      nestedObj,
+      'a[0]',
+    ],
+    ['Using array accessor as root path returns undefined', simpleObj, '[0]]'],
+  ])('%p', (desc, obj, path) => {
+    expect(get(obj, path)).toBeUndefined();
+  });
+
   test('Empty path returns passed in obj arg', () => {
     expect(get(simpleObj, '')).toEqual(simpleObj);
-  });
-
-  test('Nonexistent top-level path returns undefined', () => {
-    expect(get(simpleObj, 'bad')).toBeUndefined();
-  });
-
-  test('Nonexistent nested path returns undefined', () => {
-    expect(get(nestedObj, 'bad.path.here')).toBeUndefined();
-  });
-
-  test('Nonexistent nested path that has a partial existent path returns undefined', () => {
-    expect(get(nestedObj, 'a.b.c.bad')).toBeUndefined();
-  });
-
-  test('Unexistent top-level array index returns undefined', () => {
-    expect(
-      get(simpleArrayObj, `a[${simpleArrayObj.a.length}]`)
-    ).toBeUndefined();
-  });
-
-  test('Using array accessor on primitive prop value returns undefined', () => {
-    expect(get(simpleObj, 'a[0]')).toBeUndefined();
-  });
-
-  test('Using array accessor on object prop value returns undefined', () => {
-    expect(get(nestedObj, 'a[0]')).toBeUndefined();
-  });
-
-  test('Using array accessor as root path returns undefined', () => {
-    expect(get(simpleObj, '[0]')).toBeUndefined();
   });
 
   test('An existing root-level property path returns the value', () => {
