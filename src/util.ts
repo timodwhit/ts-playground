@@ -22,8 +22,12 @@ export const getBetweenDelimiters = (
   val: string,
   delimiter1: string,
   delimiter2: string
-): string | undefined => {
-  return includesAll(val, [delimiter1, delimiter2])
-    ? val.slice(val.indexOf(delimiter1) + 1, val.indexOf(delimiter2))
+): Maybe<string> => {
+  return includesAll(val, [delimiter1, delimiter2]) &&
+    val.indexOf(delimiter1) < val.indexOf(delimiter2)
+    ? val.slice(
+        val.indexOf(delimiter1) + delimiter1.length,
+        val.indexOf(delimiter2)
+      )
     : undefined;
 };
