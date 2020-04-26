@@ -4,7 +4,7 @@ import {
   getBetweenDelimiters,
   includesAll,
   isObjectLiteral,
-} from '../../src/util';
+} from '../index';
 
 describe('Test suite for isObjectLiteral function', () => {
   test.each([

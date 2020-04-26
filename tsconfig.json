@@ -7,10 +7,11 @@
     "lib": ["esnext"]
   },
   "include": [
+    "index.ts",
     "src/**/*.ts"
   ],
   "exclude": [
-    "test",
+    "src/**/__tests__",
     "build"
   ]
 }

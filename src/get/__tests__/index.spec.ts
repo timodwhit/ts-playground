@@ -1,4 +1,4 @@
-import {get} from '../../src';
+import {get} from '../index';
 
 describe('Test suite for get()', () => {
   const simpleObj = {
