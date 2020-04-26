@@ -19,4 +19,4 @@ jobs:
     - stage: test
       script:
         - npm run check
-        - npm run test # -- --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+        - npm run test -- --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
