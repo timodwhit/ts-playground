@@ -6,8 +6,27 @@ Repository for various coding problems solved using Typescript
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 
 ## Table of Contents
+- [`collapse`](#collapse)
 - [`get`](#get)
 - [`util`](#util)
+
+---
+
+## Collapse
+
+### Problem
+Create a function `collapse(str)` that accepts any string and returns a new "collapsed"
+version of the string where all repeated characters are reduced. This is best illustrated
+with an example:
+
+```typescript
+const str = 'aabccccccddd';
+
+collapse(str); // Returns "a2bc6d3"
+```
+
+### Solution
+The solution can be found [here](./src/collapse/index.ts).
 
 ---
 
