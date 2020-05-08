@@ -7,7 +7,7 @@ conch.on(MagicConchEvents.YES, () =>
   console.log('The magic conch answered YES. All hail the magic conch!')
 );
 
-conch.on(MagicConchEvents.YES, () =>
+conch.on(MagicConchEvents.NO, () =>
   console.log('The magic conch answered NO. All hail the magic conch!')
 );
 
