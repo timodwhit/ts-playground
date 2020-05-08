@@ -3,7 +3,7 @@ import * as EventEmitter from 'events';
 
 export class MagicConch extends EventEmitter implements IMagicConch {
   // Num MS is takes the magic conch to think of the answer.
-  static readonly THINKING_TIME = 3000;
+  static readonly THINKING_TIME = 1000;
 
   public ask(question: any): void {
     const answer: MagicConchEvents = question
